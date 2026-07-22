@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#08131f,#16384d,#0d2538);
+    color:#fff;
+    overflow-x:hidden;
+    overflow-y:auto;
+    min-height:100vh;
+}
+
+/* ===========================
+   STAR BACKGROUND
+=========================== */
+
+.stars{
+    position:fixed;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px,transparent 1px),
+        radial-gradient(white 1px,transparent 1px);
+    background-size:140px 140px,220px 220px;
+    opacity:.35;
+    animation:stars 70s linear infinite;
+    z-index:-2;
+}
+
+@keyframes stars{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-500px);
+    }
+}
+
+/* ===========================
+   GIFT SCREEN
+=========================== */
+
+.gift-section{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.gift-section h1{
+    font-size:100px;
+    animation:bounce 2s infinite;
+}
+
+.gift-section h2{
+    margin-top:10px;
+    font-size:40px;
+}
+
+.gift-section p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+button{
+    margin-top:25px;
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    background:#ff4d79;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+    transition:.4s;
+}
+
+button:hover{
+    background:#ff235d;
+    transform:scale(1.08);
+}
+
+/* ===========================
+   MAIN CONTENT
+=========================== */
+
+#mainContent{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+    padding:40px 20px 80px;
+}
+
+.photo{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    object-fit:cover;
+    border:7px solid white;
+    box-shadow:0 0 35px hotpink;
+    margin-bottom:25px;
+    transition:.5s;
+}
+
+.photo:hover{
+    transform:scale(1.05);
+}
+
+.title{
+    font-size:55px;
+    margin-bottom:15px;
+    text-shadow:0 0 20px white;
+}
+
+.subtitle{
+    font-size:30px;
+    color:#ffd166;
+    margin-bottom:20px;
+}
+
+.message{
+    max-width:750px;
+    font-size:21px;
+    line-height:2;
+    white-space:pre-wrap;
+    margin-bottom:30px;
+}
+
+/* ===========================
+   FLOATING HEARTS
+=========================== */
+
+.heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:30px;
+    animation:floatHeart linear infinite;
+    pointer-events:none;
+}
+
+.h1{left:10%;animation-duration:10s;}
+.h2{left:30%;animation-duration:12s;}
+.h3{left:50%;animation-duration:9s;}
+.h4{left:70%;animation-duration:13s;}
+.h5{left:90%;animation-duration:11s;}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* ===========================
+   ROSE PETALS
+=========================== */
+
+#petals{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.petal{
+    position:absolute;
+    top:-60px;
+    font-size:24px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-50px) rotate(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) translateX(40px) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+    margin-top:70px;
+    margin-bottom:20px;
+    font-size:18px;
+    color:#ddd;
+    text-align:center;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.photo{
+    width:210px;
+    height:210px;
+}
+
+.title{
+    font-size:34px;
+}
+
+.subtitle{
+    font-size:22px;
+}
+
+.message{
+    font-size:17px;
+    line-height:1.8;
+}
+
+button{
+    width:220px;
+}
+
+.gift-section h1{
+    font-size:80px;
+}
+
+.gift-section h2{
+    font-size:28px;
+}
+
+}
+
+@media(max-width:480px){
+
+.photo{
+    width:170px;
+    height:170px;
+}
+
+.title{
+    font-size:28px;
+}
+
+.subtitle{
+    font-size:18px;
+}
+
+.message{
+    font-size:15px;
+}
+
+button{
+    width:190px;
+}
+
+}
