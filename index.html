@@ -2,73 +2,256 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂 Happy Birthday Soumo ❤️</title>
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+   <title> A Little Surprise For You 💌</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!-- Animated Stars -->
+    <!-- ========================= -->
+    <!-- ROSE COVER -->
+    <!-- ========================= -->
+
+   
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- BACKGROUND -->
+    <!-- ========================= -->
+
     <div class="stars"></div>
 
-    <!-- Falling Rose Petals -->
     <div id="petals"></div>
 
-    <!-- Gift Screen -->
-    <div id="giftSection" class="gift-section">
+    <!-- ========================= -->
+    <!-- PASSCODE PAGE -->
+    <!-- ========================= -->
 
-        <h1>🎁</h1>
+    <section id="passcodePage" class="gift-section">
 
-        <h2>A Special Gift For You</h2>
+        <div class="passcode-container">
 
-        <p>Click the button below ❤️</p>
+            <h1 class="pass-title">
 
-        <button id="openGift">Open Gift</button>
+                ❤️ Enter the Secret Passcode ❤️
 
-    </div>
+            </h1>
 
-    <!-- Main Content -->
-    <div id="mainContent">
+            <p class="pass-text">
 
-        <img src="our-photo.jpg" class="photo" alt="Our Photo">
+                Only Soumo knows this code...
 
-        <h1 class="title">
-            🎉 Happy Birthday Soumo 🎉
-        </h1>
+            </p>
 
-        <h2 class="subtitle">
-            ❤️ My Favorite Person ❤️
-        </h2>
+            <div class="display">
 
-        <p id="typewriter" class="message"></p>
+                <div class="box" id="b1"></div>
 
-        <button id="playBtn">
-            🎵 Play Music
-        </button>
+                <div class="box" id="b2"></div>
 
-        <!-- Footer at End -->
-        <footer class="footer">
-            Made with ❤️ just for You
-        </footer>
+                <div class="box" id="b3"></div>
 
-    </div>
+                <div class="box" id="b4"></div>
 
-    <!-- Floating Hearts -->
+            </div>
+
+            <div class="keypad">
+
+                <button onclick="press('1')">1</button>
+
+                <button onclick="press('2')">2</button>
+
+                <button onclick="press('3')">3</button>
+
+                <button onclick="press('4')">4</button>
+
+                <button onclick="press('5')">5</button>
+
+                <button onclick="press('6')">6</button>
+
+                <button onclick="press('7')">7</button>
+
+                <button onclick="press('8')">8</button>
+
+                <button onclick="press('9')">9</button>
+
+                <button onclick="clearPass()">
+                    ⌫
+                </button>
+
+                <button onclick="press('0')">
+                    0
+                </button>
+
+                <button class="enter-btn" onclick="checkPass()">
+                   Enter
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- BEAR PAGE STARTS BELOW -->
+         <!-- ========================= -->
+    <!-- BEAR PAGE -->
+    <!-- ========================= -->
+
+    <section id="bearPage" style="display:none;">
+
+        <div class="bear-container">
+
+            <img src="bear.png"
+                 class="bear"
+                 alt="Cute Bear">
+
+            <h1>This is only for u ❤️</h1>
+
+            <p>
+
+                I made this little surprise only for you.
+
+                <br><br>
+
+                Thank you for coming into my life.
+
+                <br>
+
+                I hope today brings you lots of happiness.
+
+                <br><br>
+
+                Now open your birthday gift...🥹💖
+
+            </p>
+
+            <button id="openGift">
+
+                Open Your Birthday Gift🎁
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- GREETING CARD PAGE -->
+    <!-- ========================= -->
+
+    <section id="cardPage">
+
+        <div class="card" id="card">
+
+            <div class="card-front">
+
+                <h1>💌</h1>
+
+                <h2>Happy Birthday</h2>
+
+                <p>Tap to Open ❤️</p>
+
+            </div>
+
+            <div class="card-inside">
+
+                <h2>For My Favourite Person ❤️</h2>
+
+                <p>
+
+                    Every moment with you is special.
+
+                    <br><br>
+
+                    Today is your day,
+
+                    and I made this little website
+
+                    with all my love just for you❤️...
+
+                </p>
+
+                <button id="showBirthday">
+                  Continue ❤️
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- BIRTHDAY PAGE STARTS BELOW -->
+         <!-- ========================= -->
+    <!-- BIRTHDAY PAGE -->
+    <!-- ========================= -->
+
+    <section id="birthdayPage" style="display:none;">
+
+        <div class="birthday-container">
+
+            <img src="our-photo.jpg"
+                 class="photo"
+                 alt="Our Photo">
+
+            <h1 class="title">
+                🎉 Happy Birthday Soumo 🎉
+            </h1>
+
+            <h2 class="subtitle">
+                My Favourite Person ❤️
+            </h2>
+
+            <p id="typewriter" class="message"></p>
+
+            <footer class="footer">
+
+                Made with ❤️ just for You
+
+            </footer>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- FLOATING HEARTS -->
+    <!-- ========================= -->
+
     <div class="heart h1">❤️</div>
     <div class="heart h2">💕</div>
     <div class="heart h3">💖</div>
     <div class="heart h4">💗</div>
     <div class="heart h5">💞</div>
 
-    <!-- Music -->
+    <!-- ========================= -->
+    <!-- MUSIC -->
+    <!-- ========================= -->
+
     <audio id="music" loop>
+
         <source src="birthday-song.mp3" type="audio/mpeg">
+
     </audio>
+
+    <!-- ========================= -->
+    <!-- SCRIPT -->
+    <!-- ========================= -->
 
     <script src="script.js"></script>
 
