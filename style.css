@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
+   RESET
+========================================== */
 
 *{
     margin:0;
@@ -7,279 +15,1210 @@
     font-family:'Poppins',sans-serif;
 }
 
-body{
-    background:linear-gradient(135deg,#08131f,#16384d,#0d2538);
-    color:#fff;
-    overflow-x:hidden;
-    overflow-y:auto;
-    min-height:100vh;
+html{
+    scroll-behavior:smooth;
 }
 
-/* ===========================
-   STAR BACKGROUND
-=========================== */
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#fff;
 
-.stars{
+    background:
+        radial-gradient(circle at top,#ff8ab5 0%,transparent 35%),
+        radial-gradient(circle at bottom,#ffb6c1 0%,transparent 40%),
+        linear-gradient(135deg,#18001f,#51104c,#ff6d98);
+
+    background-attachment:fixed;
+}
+
+/* ==========================================
+   GLOW
+========================================== */
+
+body::before{
+
+    content:"";
+
     position:fixed;
     inset:0;
-    background-image:
-        radial-gradient(white 1px,transparent 1px),
-        radial-gradient(white 1px,transparent 1px);
-    background-size:140px 140px,220px 220px;
-    opacity:.35;
-    animation:stars 70s linear infinite;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.18),
+        transparent 70%);
+
+    filter:blur(90px);
+
+    animation:glow 8s infinite alternate;
+
     z-index:-2;
 }
 
-@keyframes stars{
+@keyframes glow{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.25);
+    }
+
+}
+
+/* ==========================================
+   STARS
+========================================== */
+
+.stars{
+
+    position:fixed;
+    inset:0;
+
+    background-image:
+        radial-gradient(white 1px,transparent 1px);
+
+    background-size:55px 55px;
+
+    opacity:.18;
+
+    animation:starsMove 45s linear infinite;
+
+    pointer-events:none;
+}
+
+@keyframes starsMove{
+
     from{
         transform:translateY(0);
     }
+
     to{
-        transform:translateY(-500px);
+        transform:translateY(-250px);
     }
+
 }
 
-/* ===========================
-   GIFT SCREEN
-=========================== */
+/* ==========================================
+   ROSE COVER
+========================================== */
+
+/* ==========================================
+   ROSE COVER
+========================================== */
+
+#petalCover{
+
+    position:fixed;
+    inset:0;
+
+    background:url("rose-cover.jpg") center center/cover no-repeat;
+
+    z-index:99999;
+
+    transition:2s;
+
+}
+
+#petalCover.hide{
+
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.05);
+
+}
+/* ==========================================
+   PETALS
+========================================== */
+
+#petals{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:5;
+}
+
+/* ==========================================
+   COMMON PAGE
+========================================== */
 
 .gift-section{
-    height:100vh;
+    width:100%;
+    min-height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
+    padding:30px;
 }
 
-.gift-section h1{
-    font-size:100px;
-    animation:bounce 2s infinite;
-}
-
-.gift-section h2{
-    margin-top:10px;
-    font-size:40px;
-}
-
-.gift-section p{
-    margin-top:15px;
-    font-size:20px;
-}
-
-@keyframes bounce{
-    50%{
-        transform:translateY(-15px);
-    }
-}
-
-/* ===========================
-   BUTTON
-=========================== */
-
-button{
-    margin-top:25px;
-    padding:15px 40px;
-    border:none;
-    border-radius:40px;
-    background:#ff4d79;
-    color:white;
-    cursor:pointer;
-    font-size:18px;
-    transition:.4s;
-}
-
-button:hover{
-    background:#ff235d;
-    transform:scale(1.08);
-}
-
-/* ===========================
-   MAIN CONTENT
-=========================== */
-
-#mainContent{
-    display:none;
-    flex-direction:column;
+#bearPage,
+#cardPage,
+#birthdayPage{
+    width:100%;
+    min-height:100vh;
+    display:none;      /* Hidden initially */
+    justify-content:center;
     align-items:center;
-    text-align:center;
-    max-width:900px;
-    margin:auto;
-    padding:40px 20px 80px;
+    padding:30px;
 }
+/* ==========================================
+   PASSCODE CONTAINER
+========================================== */
+
+.passcode-container{
+
+    width:100%;
+    max-width:560px;
+
+    text-align:center;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.12);
+
+    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+.pass-title{
+
+    font-size:44px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.pass-text{
+
+    font-size:20px;
+
+    opacity:.9;
+
+    margin-bottom:35px;
+}
+
+/* ==========================================
+   DISPLAY
+========================================== */
+
+.display{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:16px;
+
+    margin-bottom:35px;
+}
+
+.box{
+
+    width:72px;
+    height:72px;
+
+    border:3px solid rgba(255,255,255,.8);
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.12);
+
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:36px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.box:hover{
+
+    transform:translateY(-4px);
+}
+
+/* ==========================================
+   KEYPAD
+========================================== */
+
+.keypad{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,90px);
+
+    justify-content:center;
+
+    gap:18px;
+}
+
+.keypad button{
+
+    width:90px;
+    height:90px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#ff2f66;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.3);
+}
+
+.keypad button:hover{
+
+    transform:scale(1.08);
+
+    background:#ffe4ef;
+}
+
+.keypad button:active{
+
+    transform:scale(.95);
+}
+
+.enter-btn{
+
+    background:#ff2f66 !important;
+
+    color:white !important;
+}
+
+/* ==========================================
+   BEAR PAGE
+========================================== */
+
+.bear-container{
+
+    width:100%;
+    max-width:650px;
+
+    text-align:center;
+
+    padding:50px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.12);
+
+    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+}
+
+.bear{
+
+    width:280px;
+
+    animation:floatBear 3s ease-in-out infinite;
+
+}
+
+@keyframes floatBear{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+.bear-container h1{
+
+    margin-top:20px;
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.bear-container p{
+
+    margin:25px 0;
+
+    line-height:1.8;
+
+    font-size:20px;
+
+    opacity:.95;
+
+}
+
+#openGift{
+
+    margin-top:15px;
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff2f66,#ff5f8f);
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.3);
+
+}
+
+#openGift:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:0 0 30px rgba(255,255,255,.45);
+
+}
+
+/* ==========================================
+   GREETING CARD
+========================================== */
+
+.card{
+
+    width:360px;
+
+    height:480px;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    transition:transform 1s;
+
+    cursor:pointer;
+
+}
+
+.card.open{
+
+    transform:rotateY(-180deg);
+
+}
+
+.card-front,
+.card-inside{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    border-radius:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:35px;
+
+    backface-visibility:hidden;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.card-front{
+
+    background:linear-gradient(135deg,#ff5d8f,#ff9dbd);
+
+    color:#fff;
+
+}
+
+.card-front h1{
+
+    font-size:90px;
+
+    margin-bottom:20px;
+
+}
+
+.card-front h2{
+
+    font-size:34px;
+
+    margin-bottom:12px;
+
+}
+
+.card-front p{
+
+    font-size:20px;
+
+    opacity:.95;
+
+}
+
+.card-inside{
+
+    transform:rotateY(180deg);
+
+    background:rgba(255,255,255,.95);
+
+    color:#444;
+
+}
+
+.card-inside h2{
+
+    font-size:30px;
+
+    color:#ff2f66;
+
+    margin-bottom:20px;
+
+}
+
+.card-inside p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+#showBirthday{
+
+    margin-top:35px;
+
+    padding:16px 36px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff2f66,#ff5f8f);
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+}
+
+#showBirthday:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:0 0 25px rgba(255,255,255,.45);
+
+}
+/* ==========================================
+   BIRTHDAY PAGE
+========================================== */
+
+.birthday-container{
+
+    width:90%;
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:50px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.12);
+
+    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+    animation:fadeUp .8s ease;
+
+}
+
+/* ==========================================
+   PHOTO
+========================================== */
 
 .photo{
-    width:280px;
-    height:280px;
-    border-radius:50%;
+
+    width:320px;
+    height:320px;
+
     object-fit:cover;
-    border:7px solid white;
-    box-shadow:0 0 35px hotpink;
-    margin-bottom:25px;
-    transition:.5s;
+
+    border-radius:25px;
+
+    border:8px solid white;
+
+    display:block;
+
+    margin:0 auto 30px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.4);
+
+    animation:photoFloat 4s ease-in-out infinite;
+
+    transition:.4s;
+
 }
 
 .photo:hover{
+
     transform:scale(1.05);
+
 }
 
+/* ==========================================
+   TITLE
+========================================== */
+
 .title{
+
     font-size:55px;
-    margin-bottom:15px;
-    text-shadow:0 0 20px white;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.8),
+        0 0 35px rgba(255,80,140,.5);
+
 }
 
 .subtitle{
-    font-size:30px;
-    color:#ffd166;
-    margin-bottom:20px;
+
+    font-size:28px;
+
+    margin-bottom:30px;
+
+    color:#fff;
+
 }
+
+/* ==========================================
+   MESSAGE BOX
+========================================== */
 
 .message{
-    max-width:750px;
-    font-size:21px;
+
+    width:100%;
+    max-width:760px;
+
+    margin:auto;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:#444;
+
+    font-size:20px;
+
     line-height:2;
+
+    text-align:left;
+
     white-space:pre-wrap;
-    margin-bottom:30px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
 }
 
-/* ===========================
+/* ==========================================
+   PLAY BUTTON
+========================================== */
+
+#playBtn{
+
+    margin-top:35px;
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff2f66,#ff5d8f);
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+
+}
+
+#playBtn:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:0 0 30px rgba(255,255,255,.45);
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer{
+
+    margin-top:45px;
+
+    font-size:18px;
+
+    opacity:.9;
+
+    letter-spacing:1px;
+
+}
+
+/* ==========================================
    FLOATING HEARTS
-=========================== */
+========================================== */
 
 .heart{
+
     position:fixed;
-    bottom:-50px;
-    font-size:30px;
-    animation:floatHeart linear infinite;
+
+    font-size:32px;
+
     pointer-events:none;
+
+    animation:floatHeart 12s linear infinite;
+
+    opacity:.85;
+
 }
 
-.h1{left:10%;animation-duration:10s;}
-.h2{left:30%;animation-duration:12s;}
-.h3{left:50%;animation-duration:9s;}
-.h4{left:70%;animation-duration:13s;}
-.h5{left:90%;animation-duration:11s;}
+.h1{left:10%;animation-delay:0s;}
+.h2{left:30%;animation-delay:2s;}
+.h3{left:50%;animation-delay:4s;}
+.h4{left:70%;animation-delay:6s;}
+.h5{left:90%;animation-delay:8s;}
 
 @keyframes floatHeart{
 
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:0;
+    0%{
+
+        transform:translateY(100vh);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-120vh);
+
+        opacity:0;
+
+    }
+
 }
 
-20%{
-opacity:1;
+/* ==========================================
+   PHOTO FLOAT
+========================================== */
+
+@keyframes photoFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
 }
 
-100%{
-transform:translateY(-120vh) rotate(360deg);
-opacity:0;
-}
+/* ==========================================
+   FADE UP
+========================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
 
 }
 
-/* ===========================
-   ROSE PETALS
-=========================== */
-
-#petals{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-}
+/* ==========================================
+   FALLING ROSE PETALS
+========================================== */
 
 .petal{
-    position:absolute;
+
+    position:fixed;
+
     top:-60px;
-    font-size:24px;
+
+    pointer-events:none;
+
+    z-index:999;
+
     animation:fall linear forwards;
+
 }
 
 @keyframes fall{
 
-0%{
-transform:translateY(-50px) rotate(0);
-opacity:1;
+    from{
+
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity:.8;
+
+    }
+
 }
 
-100%{
-transform:translateY(110vh) translateX(40px) rotate(360deg);
-opacity:0;
-}
+/* ==========================================
+   SPARKLES
+========================================== */
+
+.sparkle{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    animation:sparkleAnim 1s linear forwards;
 
 }
 
-/* ===========================
-   FOOTER
-=========================== */
+@keyframes sparkleAnim{
 
-.footer{
-    margin-top:70px;
-    margin-bottom:20px;
-    font-size:18px;
-    color:#ddd;
-    text-align:center;
+    0%{
+
+        opacity:0;
+
+        transform:scale(.5);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.3);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(.5);
+
+    }
+
 }
 
-/* ===========================
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#2a0930;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff2f66;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff5d8f;
+
+}
+
+/* ==========================================
+   BUTTON EFFECT
+========================================== */
+
+button{
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ==========================================
+   TITLE GLOW
+========================================== */
+
+.title{
+
+    animation:titleGlow 2.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes titleGlow{
+
+    from{
+
+        text-shadow:
+            0 0 12px #fff;
+
+    }
+
+    to{
+
+        text-shadow:
+            0 0 20px #fff,
+            0 0 40px #ff5d8f,
+            0 0 60px #ff2f66;
+
+    }
+
+}
+
+/* ==========================================
    MOBILE
-=========================== */
+========================================== */
 
 @media(max-width:768px){
 
-.photo{
-    width:210px;
-    height:210px;
+    .passcode-container{
+
+        padding:28px;
+
+    }
+
+    .pass-title{
+
+        font-size:30px;
+
+    }
+
+    .pass-text{
+
+        font-size:16px;
+
+    }
+
+    .display{
+
+        gap:10px;
+
+    }
+
+    .box{
+
+        width:55px;
+        height:55px;
+
+        font-size:26px;
+
+    }
+
+    .keypad{
+
+        grid-template-columns:repeat(3,70px);
+
+        gap:14px;
+
+    }
+
+    .keypad button{
+
+        width:70px;
+        height:70px;
+
+        font-size:24px;
+
+    }
+
+    .bear{
+
+        width:220px;
+
+    }
+
+    .bear-container{
+
+        padding:30px;
+
+    }
+
+    .bear-container h1{
+
+        font-size:30px;
+
+    }
+
+    .bear-container p{
+
+        font-size:17px;
+
+    }
+
+    .card{
+
+        width:300px;
+
+        height:410px;
+
+    }
+
+    .card-front h1{
+
+        font-size:70px;
+
+    }
+
+    .card-front h2,
+    .card-inside h2{
+
+        font-size:26px;
+
+    }
+
+    .card-front p,
+    .card-inside p{
+
+        font-size:16px;
+
+    }
+
+    .birthday-container{
+
+        padding:25px 18px;
+
+    }
+
+    .photo{
+
+        width:220px;
+
+        height:220px;
+
+    }
+
+    .title{
+
+        font-size:34px;
+
+    }
+
+    .subtitle{
+
+        font-size:20px;
+
+    }
+
+    .message{
+
+        padding:20px;
+
+        font-size:16px;
+
+        line-height:1.8;
+
+    }
+
+    #playBtn,
+    #openGift,
+    #showBirthday{
+
+        width:100%;
+
+        font-size:18px;
+
+    }
+
 }
 
-.title{
-    font-size:34px;
+/* ==========================================
+   EXTRA SMALL DEVICES
+========================================== */
+
+@media(max-width:420px){
+
+    .keypad{
+
+        grid-template-columns:repeat(3,60px);
+
+        gap:12px;
+
+    }
+
+    .keypad button{
+
+        width:60px;
+        height:60px;
+
+        font-size:20px;
+
+    }
+
+    .box{
+
+        width:48px;
+        height:48px;
+
+    }
+
+    .photo{
+
+        width:180px;
+        height:180px;
+
+    }
+
+    .title{
+
+        font-size:28px;
+
+    }
+
+    .message{
+
+        font-size:15px;
+
+    }
+
 }
-
-.subtitle{
-    font-size:22px;
-}
-
-.message{
-    font-size:17px;
-    line-height:1.8;
-}
-
-button{
-    width:220px;
-}
-
-.gift-section h1{
-    font-size:80px;
-}
-
-.gift-section h2{
-    font-size:28px;
-}
-
-}
-
-@media(max-width:480px){
-
-.photo{
-    width:170px;
-    height:170px;
-}
-
-.title{
-    font-size:28px;
-}
-
-.subtitle{
-    font-size:18px;
-}
-
-.message{
-    font-size:15px;
-}
-
 button{
     width:190px;
 }
