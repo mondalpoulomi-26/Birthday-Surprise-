@@ -1172,6 +1172,7 @@ button:active{
 /* ==========================================
    EXTRA SMALL DEVICES
 ========================================== */
+<<<<<<< HEAD
 
 @media(max-width:420px){
 
@@ -1222,5 +1223,52 @@ button:active{
 button{
     width:190px;
 }
+=======
+
+@media(max-width:420px){
+
+    .keypad{
+
+        grid-template-columns:repeat(3,60px);
+
+        gap:12px;
+
+    }
+
+    .keypad button{
+
+        width:60px;
+        height:60px;
+
+        font-size:20px;
+
+    }
+
+    .box{
+
+        width:48px;
+        height:48px;
+
+    }
+
+    .photo{
+
+        width:180px;
+        height:180px;
+
+    }
+
+    .title{
+
+        font-size:28px;
+
+    }
+
+    .message{
+
+        font-size:15px;
+
+    }
+>>>>>>> c34ae43 (Improve website)
 
 }
