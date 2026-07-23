@@ -558,11 +558,5 @@ document.title = "A Little Surprise For You 💌";
 // READY
 // =======================================
 
-<<<<<<< HEAD
 console.log("❤️ Birthday Surprise Loaded ❤️");
-}
-
 setInterval(createPetal,500);
-=======
-console.log("❤️ Birthday Surprise Loaded ❤️");
->>>>>>> c34ae43 (Improve website)
